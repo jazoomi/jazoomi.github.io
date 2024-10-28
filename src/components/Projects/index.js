@@ -44,7 +44,7 @@ const Projects = () => {
             </div>
             <div className="project">
             <a href='https://github.com/jazoomi/Under_Cover' target="_blank" rel="Noreferrer"><img className="project-list-image" src={Shapes} alt="Project 3" /> </a>
-                <h3>Matching game coded with HTML, CSS, Node.js, Javascript</h3>
+                <h3>Matching game</h3>
             </div>
             <div className="project">
             <a href='https://github.com/jazoomi/SMTP-POP-server' target="_blank" rel="Noreferrer"> <img className="project-list-image" src={STMP} alt="Project 4" /> </a>

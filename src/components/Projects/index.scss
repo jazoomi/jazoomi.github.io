@@ -10,7 +10,9 @@
         letter-spacing: 10px;
         width: 100%;
         text-align: center;
+        margin-left: -220px;
         h1{
+            
             font-size: 100px;
             &::before{
                 content:none;
