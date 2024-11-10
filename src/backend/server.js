@@ -6,7 +6,11 @@ const app = express();
 const CSV_FILE = 'visitors.csv';
 const cors = require('cors');
 
-app.use(cors());
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST'],
+}));
+
 //make a helper function to find unique IP's
 const checkVisitor = (ip) =>{
     return new Promise((resolve, reject) => {
@@ -45,6 +49,6 @@ app.use(async (req,res,next) => {
         .on('error', (err) => res.status(500).json({error: err.message}));
     });
 
-    app.listen(3001,'0.0.0.0', () => {
+    app.listen(3001, () => {
         console.log('Server running on http://3.145.72.43:3001');
     })
