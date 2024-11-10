@@ -24,7 +24,12 @@ const Home = () => {
     
     useEffect(() => {
     fetch('http://3.145.72.43:3001/api/visitor-count')
-    .then(response => response.json())
+    .then(response => {
+        if (response.ok){
+            throw new Error(' HTTP error! status: ${response.status}');
+        }
+        return response.json();
+    })
     .then(data =>{
         setVisitorCount(data.count)
     })
