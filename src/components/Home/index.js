@@ -12,7 +12,8 @@ const Home = () => {
     const nameArray= ['a','d', 'i','q']
     const jobArray = ['w', 'e','l', 'c', 'o', 'm', 'e', ' ', 't', 'o', ' ', 'm', 'y', ' ', 'w', 'e', 'b', 'p', 'a', 'g', 'e', '.']
 
-    
+    const[ visitorCount, setVisitorCount] = useState(null);
+
     useEffect(() => {
         const timeoutId = setTimeout(() => {
             setLetterClass('text-animate-hover');
@@ -20,10 +21,20 @@ const Home = () => {
 
         return () => clearTimeout(timeoutId); // Cleanup function
     }, []); // Empty dependency array ensures this runs once
+    
+    useEffect(() => {
+    fetch('/.netlify/functions/readCsv')
+    .then(response => response.json)
+    .then(data =>{
+        setVisitorCount(data.count)
+    })
+    .catch(error => console.error("error fetching visitor count !", error));
+    },[]);
 
     return(
         <>
         <div className="container home-page">
+            <div className="visitor-count"> {visitorCount === null ? 'Loading visitor count ...' : visitorCount} </div> 
             <div className="text-zone">
                 <h1>
                 

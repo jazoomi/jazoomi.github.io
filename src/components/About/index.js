@@ -30,9 +30,9 @@ const About =() => {
                         idx={15}
                     />
                 </h1>
-                <p> Hello I am sadiq an undergraduate student aspiring to become a well rounded developer</p>
-                <p> I am a curious, passionate individual looking to imporve my skills one design problem at a time</p>
-                <p> I hope you can enjoy my page and would love to hearing from you in the future. </p>
+                <p> Hello I am sadiq an undergraduate student aspiring to become a well rounded developer.</p>
+                <p> I am a curious and passionate individual looking to imporve my skills one design problem at a time</p>
+                <p> I hope you can enjoy my page and would love hearing from you in the future. </p>
             </div>
         <div className="stage-cube-cont">
             <div className='cubespinner'>
