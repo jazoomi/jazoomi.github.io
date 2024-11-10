@@ -4,7 +4,9 @@ const csv = require('csv-parser');
 const { resolve } = require('path');
 const app = express();
 const CSV_FILE = 'visitors.csv';
+const cors = require('cors');
 
+app.use(cors());
 //make a helper function to find unique IP's
 const checkVisitor = (ip) =>{
     return new Promise((resolve, reject) => {
@@ -24,7 +26,7 @@ app.use(async (req,res,next) => {
     const ip = req.ip;
 
     if(!(await checkVisitor(ip))){
-        const newVisitor = '${ip},${new Date().toISOString()}\n';
+        const newVisitor = `${ip},${new Date().toISOString()}\n`;
         fs.appendFile(CSV_FILE, newVisitor, (err) =>{
             if (err) console.error('Error writing to csv', err);
         });
@@ -34,7 +36,7 @@ app.use(async (req,res,next) => {
 
 })
     //this app function sends back the response that they want, which is the number of rows in the cvs since it represents the number of unique visits
-    app.get('http://3.145.72.43:3001/api/visitor-count', (req, res) => {
+    app.get('/api/visitor-count', (req, res) => {
         let count = 0;
         fs.createReadStream(CSV_FILE)
         .pipe(csv())
@@ -44,5 +46,5 @@ app.use(async (req,res,next) => {
     });
 
     app.listen(3001,'0.0.0.0', () => {
-        console.log('Server running on http://localhost:3001');
+        console.log('Server running on http://3.145.72.43:3001');
     })

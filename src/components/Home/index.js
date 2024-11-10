@@ -24,7 +24,7 @@ const Home = () => {
     
     useEffect(() => {
     fetch('http://3.145.72.43:3001/api/visitor-count')
-    .then(response => response.json)
+    .then(response => response.json())
     .then(data =>{
         setVisitorCount(data.count)
     })
