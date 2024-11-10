@@ -33,7 +33,7 @@ const Home = () => {
     .then(data =>{
         setVisitorCount(data.count)
     })
-    .catch(error => console.error("error fetching visitor count !", error));
+    .catch(error => console.error("error fetching visito count !", error));
     },[]);
 
     return(
