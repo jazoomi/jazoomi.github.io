@@ -34,7 +34,7 @@ app.use(async (req,res,next) => {
 
 })
     //this app function sends back the response that they want, which is the number of rows in the cvs since it represents the number of unique visits
-    app.get('http://localhost:3001/api/your-endpoint', (req, res) => {
+    app.get('http://3.145.72.43:3001/api/visitor-count', (req, res) => {
         let count = 0;
         fs.createReadStream(CSV_FILE)
         .pipe(csv())
@@ -43,6 +43,6 @@ app.use(async (req,res,next) => {
         .on('error', (err) => res.status(500).json({error: err.message}));
     });
 
-    app.listen(3001, () => {
+    app.listen(3001,'0.0.0.0', () => {
         console.log('Server running on http://localhost:3001');
     })
