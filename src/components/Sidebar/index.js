@@ -31,7 +31,7 @@ const Sidebar = () => (
             <li>  
                 <a target="_blank"
                 rel="noreferrer"
-                href="https://drive.google.com/file/d/1bMB1d88ty7tWeRjPwrXMNOVsdH8fqxI1/view?usp=sharing">
+                href="https://drive.google.com/file/d/1Q0vjXz0eN629pO_fnfAV0zRf_hhYaffJ/view?usp=sharing">
                     <FontAwesomeIcon icon={faFile} color="#4d4d4e" />
                 </a>
 
